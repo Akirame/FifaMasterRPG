@@ -31,7 +31,7 @@ public class UniverseCreator : MonoBehaviourSingleton<UniverseCreator>
             float planetSize = Random.Range(minPlanetSize, maxPlanetSize);
 
             newPlanet.Set(Sun, distanceToSun, planetSize);
-            newPlanet.traslationSpeed = Random.Range(5f, 20f);
+            newPlanet.traslationSpeed = Random.Range(1f,3f);
             newPlanet.transform.parent = transform;
         }
     }
