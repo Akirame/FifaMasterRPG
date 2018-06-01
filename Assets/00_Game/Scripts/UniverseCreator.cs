@@ -4,35 +4,49 @@ using UnityEngine;
 
 public class UniverseCreator : MonoBehaviourSingleton<UniverseCreator>
 {
-    public GameObject planetPrefab;
+    public GameObject planet1;
+    public GameObject planet2;
+    public GameObject planet3;
 
     public float minPlanetSize;
     public float maxPlanetSize;
 
-    public float minPlanetDistanceToSun;
-    public float maxPlanetDistanceToSun;
+    public float planetDistanceToSun;
 
     public int minPlanetsToCreate;
     public int maxPlanetsToCreate;
 
+    private List<GameObject> PlanetList = new List<GameObject>();
+
     public GameObject Sun;
 
+    private void Start()
+    {
+        PlanetList.Add(planet1);
+        PlanetList.Add(planet2);
+        PlanetList.Add(planet3);
+        CreateUniverse();
+    }
     public void CreateUniverse()
     {
         int planetCount = Random.Range(minPlanetsToCreate, maxPlanetsToCreate);
-
-        for (int i = 0; i < planetCount; i++)
+        
+        for (int i = 1; i < planetCount + 1; i++)
         {
-            GameObject newPlanetGO = Instantiate(planetPrefab);
+
+            int randomIndex = Random.Range(0, PlanetList.Count);
+            
+            GameObject newPlanetGO = Instantiate(PlanetList[randomIndex]);
             Planet newPlanet = newPlanetGO.GetComponent<Planet>();
 
-            float distanceToSun = Random.Range(minPlanetDistanceToSun, maxPlanetDistanceToSun);
+            float distanceToSun = i * planetDistanceToSun;
 
             float planetSize = Random.Range(minPlanetSize, maxPlanetSize);
 
             newPlanet.Set(Sun, distanceToSun, planetSize);
-            newPlanet.traslationSpeed = Random.Range(1f,3f);
+            newPlanet.traslationSpeed = Random.Range(2f, 7f);
             newPlanet.transform.parent = transform;
         }
     }
 }
+

@@ -6,6 +6,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     private void Start()
     {                
-            UniverseCreator.Get().CreateUniverse();        
+             
     }
 }
