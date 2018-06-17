@@ -12,4 +12,8 @@ public class ButtonsLevelSelect : MonoBehaviour
     {
         GameManager.Get().ExitPlanet();
     }
+    public void EnterPressed()
+    {
+        GameManager.Get().LoadLevel();
+    }
 }

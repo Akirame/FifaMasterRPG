@@ -4,24 +4,46 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
+    public enum TYPE {
 
+        PLANETRED,
+        PLANETGREEN,
+        PLANETBLUE,
+    }
     public GameObject rotateAround;
+    public TYPE typeOfPlanet;
     public float radius = 10;
     public float traslationSpeed = 10;
     public float angle;
+    public float rotationSpeed;
 
     private Renderer rend;
     private Shader shader1;
-    private Shader shader2;
-    
-    //Rotacion planeta
-    public float rotationSpeed;
+    private Shader shader2;        
+
+    private string[] names = { "Norfair","Dune","Hyperion","Andromeda","Exodus","Kashyyyk"};
+    private string planetName;
+    private string planetInfo;
 
     private void Start()
     {
+        planetName = names[Random.Range(0, names.Length)];
         rend = GetComponent<Renderer>();
         shader1 = Shader.Find("Standard");
-        shader2 = Shader.Find("Outlined/Custom");        
+        shader2 = Shader.Find("Outlined/Custom");
+
+        switch (typeOfPlanet)
+        {
+            case TYPE.PLANETRED:
+                planetInfo = "A planet full of lava";
+                break;
+            case TYPE.PLANETGREEN:
+                planetInfo = "A planet full of Shitty trees";
+                break;
+            case TYPE.PLANETBLUE:
+                planetInfo = "A planet full of water";
+                break;
+        }
     }
     public void Set(GameObject _rotateAround, float _radius, float _size)
     {
@@ -71,5 +93,17 @@ public class Planet : MonoBehaviour
     public void ShaderOutLine()
     {
         rend.material.shader = shader2;
+    }
+    public string GetPlanetName()
+    {
+        return planetName;
+    }
+    public string GetPlanetInfo()
+    {
+        return planetInfo;
+    }
+    public TYPE GetTypeOfPlanet()
+    {
+        return typeOfPlanet;
     }
 }

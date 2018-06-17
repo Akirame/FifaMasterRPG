@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54653398875018846}
   m_Layer: 0
   m_Name: Planet 3
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 226f84501c814d24fa0bf5ec8ada6892, type: 2}
   m_StaticBatchInfo:
