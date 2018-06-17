@@ -57,11 +57,19 @@ public class Planet : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            rend.material.shader = shader2;
+            ShaderOutLine();
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")            
-            rend.material.shader = shader1;
+        if (other.gameObject.tag == "Player")
+            ShaderNormal();
+    }
+    public void ShaderNormal()
+    {
+        rend.material.shader = shader1;
+    }
+    public void ShaderOutLine()
+    {
+        rend.material.shader = shader2;
     }
 }

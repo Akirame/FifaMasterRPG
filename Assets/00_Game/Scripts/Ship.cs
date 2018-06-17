@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class Ship : MonoBehaviourSingleton<Ship>
 {
     public float speed = 10;
     public float rotationSpeed = 10;
     public float angle;
-
+    private GameObject planetTouched;
 
     private void Update()
     {
@@ -48,5 +48,24 @@ public class Ship : MonoBehaviour
         }
 
         return angleBtw;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Planet")
+        {
+            planetTouched = other.transform.gameObject;
+            GameManager.Get().ShipOnPlanet();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Planet")
+        {
+            GameManager.Get().ShipOffPlanet();
+        }
+    }
+    public GameObject GetLastPlanetTouched()
+    {
+        return planetTouched;
     }
 }
