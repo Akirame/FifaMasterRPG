@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +8,23 @@ public class Ship : MonoBehaviourSingleton<Ship>
     public float speed = 10;
     public float rotationSpeed = 10;
     public float angle;
+    public float fuel;
+    public float timerFuel;
+    public const int fuelControl = 2;
+    public const int MAX_FUEL = 100;
     private GameObject planetTouched;
 
+    private void Start()
+    {
+        fuel = MAX_FUEL;
+    }
+
     private void Update()
+    {
+        Movement();
+    }
+
+    private void Movement()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -31,6 +46,22 @@ public class Ship : MonoBehaviourSingleton<Ship>
         {
             angle = newAngleY;
             transform.rotation = newRotation;
+        }
+
+        FuelControl(movement);
+
+    }
+
+    private void FuelControl(Vector3 movement)
+    {
+        if (movement != Vector3.zero)
+        {
+            timerFuel += Time.deltaTime;
+            if (timerFuel > fuelControl)
+            {
+                timerFuel = 0;
+                fuel--;
+            }
         }
     }
 
@@ -68,4 +99,15 @@ public class Ship : MonoBehaviourSingleton<Ship>
     {
         return planetTouched;
     }
+
+    public float GetFuel()
+    {
+        return fuel;
+    }
+
+    public int GetMaxFuel()
+    {
+        return MAX_FUEL;
+    }
+
 }

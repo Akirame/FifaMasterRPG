@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviourSingleton<UIManager>
     public GameObject exitButton;
     public GameObject enterButton;
     public GameObject planetText;
+    public Image fuelBar;
     public Text planetName;
     public Text planetInfo; 
     public void OnPlanet()
@@ -29,7 +31,7 @@ public class UIManager : MonoBehaviourSingleton<UIManager>
         enterButton.SetActive(true);
         planetName.text = planet.GetPlanetName();
         planetInfo.text = planet.GetPlanetInfo();
-
+        fuelBar.gameObject.SetActive(false);
         planetText.SetActive(true);        
     }
     public void ExitPlanet()
@@ -37,9 +39,21 @@ public class UIManager : MonoBehaviourSingleton<UIManager>
         planetText.SetActive(false);        
         exitButton.SetActive(false);
         enterButton.SetActive(false);
+        fuelBar.gameObject.SetActive(true);
     }
     public void SetPlanet(Planet _planet)
     {
         planet = _planet;
+    }
+
+    private void Update()
+    {
+        UpdateLabels();
+    }
+
+    private void UpdateLabels()
+    {
+        Ship player = GameManager.Get().GetPlayer().GetComponent<Ship>();
+        fuelBar.fillAmount = player.GetFuel() / player.GetMaxFuel();
     }
 }

@@ -52,4 +52,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 break;
         }
     }
+
+    public GameObject GetPlayer()
+    {
+        return player;
+    }
+
 }
