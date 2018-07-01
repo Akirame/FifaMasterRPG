@@ -31,8 +31,10 @@ public class ItemPickUp : Interactable
 
 	void PickUp()
 	{
-		Inventory.Get().AddItem(item);
-		Destroy(gameObject);
+		bool itemPickedUP = Inventory.Get().Add(item);
+		
+		if (itemPickedUP)
+			Destroy(gameObject);
 	}
 
 	void OnTriggerEnter(Collider player)
