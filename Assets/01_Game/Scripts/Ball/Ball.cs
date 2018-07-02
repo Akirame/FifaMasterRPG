@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour {
 
     public float speed = 300;
     public Vector3 velocity;
+    public GameObject player;
 
 	// Use this for initialization
 	void Start () {
@@ -29,5 +30,23 @@ public class Ball : MonoBehaviour {
             collision.transform.GetComponent<TempEnemy>().Kill();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player = other.gameObject;
+            other.GetComponent<TempPlayerMov>().SetBall(gameObject);
+        }
+    }
+
+    /*private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            player = null;
+            other.GetComponent<TempPlayerMov>().ball = null;
+        }
+    }*/
 
 }

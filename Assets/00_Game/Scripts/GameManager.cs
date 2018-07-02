@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
@@ -43,11 +44,14 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             case Planet.TYPE.PLANETRED:
                 Debug.Log("level1");
+                SceneManager.LoadScene(1);
                 break;
             case Planet.TYPE.PLANETGREEN:
+                SceneManager.LoadScene(1);
                 Debug.Log("level2");
                 break;
             case Planet.TYPE.PLANETBLUE:
+                SceneManager.LoadScene(1);
                 Debug.Log("level3");
                 break;
         }
