@@ -5,6 +5,8 @@ using UnityEngine;
 public class TempPlayerMov : MonoBehaviour
 {
 	public float speed = 5f;
+    public GameObject ball;
+    public Vector3 direction;
 
 	void Update ()
 	{
@@ -17,5 +19,17 @@ public class TempPlayerMov : MonoBehaviour
 		mov.z += vertical * speed * Time.deltaTime;
 
 		transform.position = mov;
+
+        ShootBehaviour();
+
 	}
+
+    private void ShootBehaviour()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ball.GetComponent<Ball>().Shoot(direction);
+        }
+    }
+
 }
