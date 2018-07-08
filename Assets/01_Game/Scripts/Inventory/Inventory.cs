@@ -13,8 +13,11 @@ public class Inventory : MonoBehaviour
 
 	void Awake()
 	{
-		instance = this;
-	}
+        if (!instance)
+            instance = this;
+        else
+            Destroy(this);
+    }
 	#endregion
 
 	public delegate void OnItemChanged();

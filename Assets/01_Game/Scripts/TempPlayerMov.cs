@@ -5,7 +5,23 @@ using UnityEngine;
 
 public class TempPlayerMov : MonoBehaviour
 {
-	public float speed = 5f;
+    #region Singleton
+    public static TempPlayerMov instance;
+    public static TempPlayerMov Get()
+    {
+        return instance;
+    }
+
+    void Awake()
+    {
+        if (!instance)
+            instance = this;
+        else
+            Destroy(this);
+    }
+    #endregion
+
+    public float speed = 5f;
     public GameObject ball;
     public Vector3 direction;
     public float rotationSpeed = 30f;
@@ -86,5 +102,12 @@ public class TempPlayerMov : MonoBehaviour
             shooting = false;
         }
     }
-
+    public float GetForce()
+    {
+        return forceForw;
+    }
+    public float GetMaxForce()
+    {
+        return maxForceForw;
+    }
 }
