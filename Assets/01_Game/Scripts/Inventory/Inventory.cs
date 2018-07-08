@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 	#region Singleton
-	public static Inventory instance;
+	private static Inventory instance;
 	public static Inventory Get()
 	{
 		return instance;

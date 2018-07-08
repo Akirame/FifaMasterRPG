@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shoes Of Power
   icon: {fileID: 21300000, guid: 678db02814a5914429dd48039a0661bb, type: 3}
-  playerEquipSlot: 0
+  playerEquipSlot: 5
   speedStat: 1
   powerStat: 3

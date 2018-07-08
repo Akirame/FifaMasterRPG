@@ -9,6 +9,13 @@ public class Equipment : Item
 
 	public int speedStat;
 	public int powerStat;
+
+	public override void Use()
+	{
+		base.Use();
+		EquipmentManager.Get().EquipItem(this);
+		RemoveFromInventory();
+	}
 }
 
 public enum PlayerEquipmentSlot
