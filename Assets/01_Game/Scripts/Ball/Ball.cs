@@ -8,15 +8,6 @@ public class Ball : MonoBehaviour {
     public Vector3 velocity;
     public GameObject player;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void Shoot(Vector3 dir)
     {
@@ -27,7 +18,7 @@ public class Ball : MonoBehaviour {
     {
         if (collision.transform.tag == "Enemy")
         {
-            collision.transform.GetComponent<TempEnemy>().Kill();
+            collision.transform.GetComponent<EnemyMelee>().Kill();
         }
     }
 

@@ -1,30 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-public class TempEnemy : MonoBehaviour {
-
-    public enum STATES {ROAMING, CHASING, ATTACKING, LAST}
-    public STATES currentState;
-    public float speed;
-    public Vector3 direction;
-    private Vector3 velocity;
-    public Transform target;
-    public Vector3 steering;
-    public float chasingDistance = 7;
-    public float attackingDistance = 1.5f;
-    public float timeToAttack = 2f;
-    public float timerAttack;
-    public int damage;
+public class EnemyMelee : Enemy
+{
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         currentState = STATES.ROAMING;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        chasingDistance = 7;
+        attackingDistance = 1.5f;
+        timeToAttack = 2f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         StateMachine();
-	}
+    }
 
     private void FixedUpdate()
     {
@@ -53,6 +46,7 @@ public class TempEnemy : MonoBehaviour {
     {
         if (currentState == STATES.CHASING)
         {
+            Debug.Log("HOLA");
             direction = (target.position - transform.position).normalized;
             velocity.x = speed * direction.x;
             velocity.z = speed * direction.z;
@@ -82,6 +76,7 @@ public class TempEnemy : MonoBehaviour {
 
     public void Kill()
     {
+        Hitted(this);
         gameObject.SetActive(false);
     }
 
