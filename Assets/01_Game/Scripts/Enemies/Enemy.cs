@@ -18,5 +18,7 @@ public class Enemy : MonoBehaviour {
     public int damage;    
 
     public Transform target;
-    protected Vector3 velocity;    
+    protected Vector3 velocity;
+
+    public virtual void Kill() { }    
 }

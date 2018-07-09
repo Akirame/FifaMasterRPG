@@ -71,7 +71,7 @@ public class EnemyMelee : Enemy
     }
 
 
-    public void Kill()
+    override public void Kill()
     {
         Hitted(this);        
         Destroy(this.gameObject);

@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour {
     {
         if (collision.transform.tag == "Enemy")
         {
-            collision.transform.GetComponent<EnemyMelee>().Kill();
+            collision.transform.GetComponent<Enemy>().Kill();
         }
     }
 
