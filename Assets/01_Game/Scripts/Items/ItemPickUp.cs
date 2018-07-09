@@ -3,13 +3,16 @@
 public class ItemPickUp : Interactable
 {
 	public Item item;
-
+	public float throwItemForce = 10f;
 	private bool canPickUp;
 
 	void Start()
 	{
 		AddSphereTrigger();
 		canPickUp = false;
+
+		Rigidbody rg = GetComponent<Rigidbody>();
+		rg.AddForce((this.transform.up + this.transform.forward) * throwItemForce);
 	}
 
 	public override void Interact()
