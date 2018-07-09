@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour
+{
 
     [System.Serializable]
     public class EnemyList
     {
-        public Enemy[] enemies;
+        public List<Enemy> enemies;
     }
-    public EnemyList[] EnemyWaves;
+    public List<EnemyList> EnemyWaves;
+
+
     public Transform[] spawnPoints;
 
     private bool nextWave;
@@ -17,6 +20,8 @@ public class EnemyManager : MonoBehaviour {
     private GameObject wave;
     private float timeBetweenWaves;
     private float timer;
+    private int currentEnemies;
+
     private void Start()
     {
         Enemy.Hitted += EnemyKilled;
@@ -25,20 +30,21 @@ public class EnemyManager : MonoBehaviour {
         wave = new GameObject();
         timeBetweenWaves = 3;
         timer = 0;
+        currentEnemies = 0;
     }
 
     private void Update()
     {
-        if (currentWave <= EnemyWaves.Length)
-        {
+        if (currentWave <= EnemyWaves.Count)
+        {            
             if (nextWave)
             {
-
                 SpawnWave();
                 nextWave = false;
             }
-            if (EnemyWaves[currentWave - 1].enemies.Length <= 0) //si toda la oleada es eliminada
+            if (currentEnemies <= 0) //si toda la oleada es eliminada
             {
+                Debug.Log("WAVE END");
                 if (timer >= timeBetweenWaves)
                 {
                     currentWave++;
@@ -53,17 +59,18 @@ public class EnemyManager : MonoBehaviour {
             Debug.Log("WIN");
     }
     private void SpawnWave()
-    {                        
+    {
         wave.name = "Wave " + currentWave;
-        for (int i = 0; i < EnemyWaves[currentWave - 1].enemies.Length; i++)
+        for (int i = 0; i < EnemyWaves[currentWave - 1].enemies.Count; i++)
         {
-            Enemy e = EnemyWaves[currentWave - 1].enemies[i];            
+            Enemy e = EnemyWaves[currentWave - 1].enemies[i];
             Transform t = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(e.transform.gameObject, t.position, Quaternion.identity, wave.transform);
         }
+        currentEnemies = EnemyWaves[currentWave - 1].enemies.Count;
     }
     private void EnemyKilled(Enemy e)
     {
-        Debug.Log("Dead");
+        currentEnemies--;
     }
 }

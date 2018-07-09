@@ -7,12 +7,12 @@ public class EnemyMelee : Enemy
     // Use this for initialization
     void Start()
     {
+        target = TempPlayerMov.Get().transform;
         currentState = STATES.ROAMING;
         chasingDistance = 7;
         attackingDistance = 1.5f;
         timeToAttack = 2f;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -45,8 +45,7 @@ public class EnemyMelee : Enemy
     private void ChaseBehaviour()
     {
         if (currentState == STATES.CHASING)
-        {
-            Debug.Log("HOLA");
+        {            
             direction = (target.position - transform.position).normalized;
             velocity.x = speed * direction.x;
             velocity.z = speed * direction.z;
@@ -63,21 +62,18 @@ public class EnemyMelee : Enemy
         {
             currentState = STATES.ATTACKING;
         }
-        else if (distanceToTarget < chasingDistance)
-        {
-            currentState = STATES.CHASING;
-        }
-        else
-        {
-            currentState = STATES.ROAMING;
-        }
+        else 
+            currentState = STATES.CHASING;        
+        //else
+        //{
+        //    currentState = STATES.ROAMING;
+        //}
     }
 
 
     public void Kill()
     {
-        Hitted(this);
-        gameObject.SetActive(false);
+        Hitted(this);        
+        Destroy(this.gameObject);
     }
-
 }

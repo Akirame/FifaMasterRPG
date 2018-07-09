@@ -78,24 +78,23 @@ public class TempPlayerMov : MonoBehaviour
 
     private void ShootBehaviour()
     {
-        if (ball && Input.GetKey(KeyCode.Space) & !shooting)
+        if (ball &&  ballInControl && Input.GetKey(KeyCode.Space) & !shooting)
         {
             forceForw += ballForceForward * Time.deltaTime;
             forceUp += ballForceUpward * Time.deltaTime;
             if (forceForw >= maxForceForw)
                 forceForw = maxForceForw;
             if (forceUp >= maxForceUp)
-                forceUp = maxForceUp;
+                forceUp = maxForceUp;            
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             shooting = true;
         }
-        if (ball && shooting)
+        if (ball && ballInControl && shooting)
         {
             Vector3 dir =  (transform.forward * forceForw) + (transform.up * forceUp);
             ballInControl = false;
-            Debug.Log(dir);
             ball.GetComponent<Ball>().Shoot(dir);
             forceForw = 0;
             forceUp = 0;
