@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65574759687275192}
   - component: {fileID: 23375235488549410}
   m_Layer: 0
-  m_Name: TestItem
+  m_Name: ShoesOfPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163390829990496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.41, y: 0.79, z: 0}
+  m_LocalPosition: {x: -2.6, y: 0.79, z: 4.52}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,4 +108,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  item: {fileID: 11400000, guid: 85df68933e314294db56774cabccb42a, type: 2}
+  item: {fileID: 11400000, guid: f08c43ea2acfd08468020f13127f2c9b, type: 2}

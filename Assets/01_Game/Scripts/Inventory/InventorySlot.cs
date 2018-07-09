@@ -30,7 +30,10 @@ public class InventorySlot : MonoBehaviour
 
 	public void RemoveButton()
 	{
-		Inventory.Get().Remove(item);
+		Instantiate(item.itemPrefab, TempPlayerMov.Get().transform.position, Quaternion.identity);
+		item.RemoveFromInventory();
+
+		//Inventory.Get().Remove(item);
 	}
 
 	public void UseItem()

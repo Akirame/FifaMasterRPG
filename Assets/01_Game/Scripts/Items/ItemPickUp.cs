@@ -31,9 +31,9 @@ public class ItemPickUp : Interactable
 
 	void PickUp()
 	{
-		bool itemPickedUP = Inventory.Get().Add(item);
+		bool itemPickedUp = Inventory.Get().Add(item);
 		
-		if (itemPickedUP)
+		if (itemPickedUp)
 			Destroy(gameObject);
 	}
 

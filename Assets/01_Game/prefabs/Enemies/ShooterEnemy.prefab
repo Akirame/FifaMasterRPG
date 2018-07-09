@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1563230664384954}
+  m_RootGameObject: {fileID: 1086680114073244}
   m_IsPrefabParent: 1
---- !u!1 &1563230664384954
+--- !u!1 &1086680114073244
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4856774377945678}
-  - component: {fileID: 33118008833601516}
-  - component: {fileID: 135164954862455554}
-  - component: {fileID: 23475610851040048}
-  - component: {fileID: 54125841325867922}
-  - component: {fileID: 114247008907744366}
-  m_Layer: 0
-  m_Name: WalkerEnemy
+  - component: {fileID: 4615016895660294}
+  - component: {fileID: 33572055328727464}
+  - component: {fileID: 135067683786707590}
+  - component: {fileID: 23432657280620218}
+  - component: {fileID: 114058895531595800}
+  - component: {fileID: 54795728242380476}
+  m_Layer: 9
+  m_Name: ShooterEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4856774377945678
+--- !u!4 &4615016895660294
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563230664384954}
+  m_GameObject: {fileID: 1086680114073244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6303911, y: 1.4416113, z: -3.83}
+  m_LocalPosition: {x: 18.87, y: 1.4416113, z: 7.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23475610851040048
+--- !u!23 &23432657280620218
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563230664384954}
+  m_GameObject: {fileID: 1086680114073244}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e3426c6b5edffb44b6dca8e54e74c94, type: 2}
+  - {fileID: 2100000, guid: 57d73bbd5b879af43a423b75d0032502, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,19 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33118008833601516
+--- !u!33 &33572055328727464
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563230664384954}
+  m_GameObject: {fileID: 1086680114073244}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54125841325867922
+--- !u!54 &54795728242380476
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563230664384954}
+  m_GameObject: {fileID: 1086680114073244}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -101,33 +101,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &114247008907744366
+--- !u!114 &114058895531595800
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563230664384954}
+  m_GameObject: {fileID: 1086680114073244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29cf639605784ba46b415a7eb5678dde, type: 3}
+  m_Script: {fileID: 11500000, guid: ad30fdfd427c8ee46acbde8f64bdda2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
-  speed: 100
+  currentState: 1
+  speed: 0
   direction: {x: 0, y: 0, z: 0}
   steering: {x: 0, y: 0, z: 0}
-  chasingDistance: 20
-  attackingDistance: 1.5
-  timeToAttack: 2
+  chasingDistance: 0
+  attackingDistance: 0
+  timeToAttack: 5
   timerAttack: 0
   damage: 0
-  target: {fileID: 4040554442446766, guid: 124d3791062649946bba2ca474790b2f, type: 2}
---- !u!135 &135164954862455554
+  target: {fileID: 0}
+  bullet: {fileID: 114942554683773326, guid: ab1c819bf0e929a498dfd31210477d33, type: 2}
+  teletransportSize: {x: 52, y: 1, z: 52}
+--- !u!135 &135067683786707590
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1563230664384954}
+  m_GameObject: {fileID: 1086680114073244}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
