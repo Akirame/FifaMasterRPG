@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5762a32faf9edf4784b4c2f62ab2cdc, type: 3}
+  m_Name: SpeedCoffee
+  m_EditorClassIdentifier: 
+  name: Speed Coffee
+  itemPrefab: {fileID: 1440701570306780, guid: 8c4f5edb9a7c3624c97f2bf7113e92b0, type: 2}
+  icon: {fileID: 21300000, guid: 16130569b538a114ea56850c8064894c, type: 3}
+  playerEquipSlot: 2
+  speedStat: 10
+  powerStat: 5
