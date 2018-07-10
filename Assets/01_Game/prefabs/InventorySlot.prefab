@@ -293,7 +293,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 114245660998291468}
   removeButton: {fileID: 114185088449344884}
-  playerPos: {fileID: 0}
 --- !u!222 &222098927079141128
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5762a32faf9edf4784b4c2f62ab2cdc, type: 3}
-  m_Name: SpeedCoffee
+  m_Name: ShoesOfSpeed
   m_EditorClassIdentifier: 
-  name: Speed Coffee
-  itemPrefab: {fileID: 1389940715576354, guid: f9f51cc406333184e91142201e53c05d, type: 2}
-  icon: {fileID: 21300000, guid: 16130569b538a114ea56850c8064894c, type: 3}
-  playerEquipSlot: 2
-  speedStat: 10
-  powerStat: 5
+  name: Shoes Of Speed
+  itemPrefab: {fileID: 1292054980126236, guid: 1ffedcc6343ad9743a64ae427b91fe01, type: 2}
+  icon: {fileID: 21300000, guid: 32c3fb9487ffa454cb6b3207bf527c20, type: 3}
+  playerEquipSlot: 5
+  speedStat: 3
+  powerStat: 1

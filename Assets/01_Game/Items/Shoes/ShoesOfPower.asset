@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ShoesOfPower
   m_EditorClassIdentifier: 
   name: Shoes Of Power
-  itemPrefab: {fileID: 1163390829990496, guid: ec8cab9ab41ffb146a99cd745c09ed71, type: 2}
-  icon: {fileID: 21300000, guid: 678db02814a5914429dd48039a0661bb, type: 3}
+  itemPrefab: {fileID: 1525860046811790, guid: cf0acec82c73d29468c2b65a183b15b5, type: 2}
+  icon: {fileID: 21300000, guid: 1ff3f0b2b660f734a8388fab0cc3e659, type: 3}
   playerEquipSlot: 5
   speedStat: 1
   powerStat: 3
