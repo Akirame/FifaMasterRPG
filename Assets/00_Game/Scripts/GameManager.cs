@@ -7,10 +7,14 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     GameObject player;
     GameObject planet;
+    GameObject universeCreator;
+    GameObject ship;    
 
     private void Start()
     {
-        player = Ship.Get().transform.gameObject;
+        ship = Ship.Get().transform.gameObject;
+        player = TempPlayerMov.Get().transform.gameObject;
+        universeCreator = UniverseCreator.Get().transform.gameObject;
     }
     public void ShipOnPlanet()
     {

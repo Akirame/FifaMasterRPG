@@ -3,24 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempPlayerMov : MonoBehaviour
-{
-    #region Singleton
-    public static TempPlayerMov instance;
-    public static TempPlayerMov Get()
-    {
-        return instance;
-    }
-
-    void Awake()
-    {
-        if (!instance)
-            instance = this;
-        else
-            Destroy(this);
-    }
-    #endregion
-
+public class TempPlayerMov : MonoBehaviourSingleton<TempPlayerMov>
+{    
     public float speed = 5f;
     public GameObject ball;
     public Vector3 direction;
