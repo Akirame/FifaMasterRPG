@@ -8,6 +8,8 @@ public class InventoryUI : MonoBehaviour
 
 	public GameObject inventoryUI;
 
+	public GameObject playerStats;
+
 	Inventory inventory;
 
 	InventorySlot[] slots;
@@ -25,9 +27,7 @@ public class InventoryUI : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.I))
 		{
 			inventoryUI.SetActive(!inventoryUI.activeSelf);
-
-			// See if opening the inventory should stop the game,
-			// or just the player movement
+			playerStats.SetActive(!playerStats.activeSelf);
 		}
 	}
 

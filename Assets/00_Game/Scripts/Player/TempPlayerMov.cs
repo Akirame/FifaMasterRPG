@@ -79,10 +79,13 @@ public class TempPlayerMov : MonoBehaviour
 
         BallControlBehaviour();
         if (Input.GetKeyDown(KeyCode.Z))
-            LoaderManager.Get().LoadScene("LevelSelect");        
+            LoaderManager.Get().LoadScene("LevelSelect");
+
+		Inventory.Get().playerSpeed = playerStats.speed.GetValue();
+		Inventory.Get().playerPower = playerStats.power.GetValue();
 	}
 
-    private void BallControlBehaviour()
+	private void BallControlBehaviour()
     {
         if (ball && ballInControl)
         {

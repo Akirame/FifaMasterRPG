@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class Inventory : MonoBehaviour
             Destroy(this);
     }
 	#endregion
+
+	public Text playerSpeedText;
+	public Text playerPowerText;
+
+	[HideInInspector]
+	public int playerSpeed;
+	[HideInInspector]
+	public int playerPower;
 
 	public delegate void OnItemChanged();
 	public OnItemChanged onItemChangeCallback;
@@ -44,7 +53,13 @@ public class Inventory : MonoBehaviour
 			return false;
 		}
 	}
-	
+
+	void Update()
+	{
+		playerSpeedText.text = "SPEED: " + playerSpeed;
+		playerPowerText.text = "SHOOTING POWER: " + playerPower;
+	}
+
 	public void Remove (Item item)
 	{
 		items.Remove(item);
