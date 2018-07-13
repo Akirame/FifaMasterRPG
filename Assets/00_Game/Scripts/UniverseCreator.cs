@@ -43,7 +43,6 @@ public class UniverseCreator : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("holi");
         PlanetList.Add(planet1);
         PlanetList.Add(planet2);
         PlanetList.Add(planet3);

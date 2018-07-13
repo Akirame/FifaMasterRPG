@@ -2,8 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class GameManager : MonoBehaviourSingleton<GameManager>
+public class GameManager : MonoBehaviour
 {
+    #region singleton
+    private static GameManager instance;
+    public static GameManager Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
     GameObject player;
     GameObject planet;
     GameObject universeCreator;

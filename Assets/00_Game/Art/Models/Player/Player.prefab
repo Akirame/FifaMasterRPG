@@ -50,7 +50,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4529061932385812}
   - component: {fileID: 95488811232092394}
-  - component: {fileID: 114514385224023266}
   - component: {fileID: 114385631468790302}
   - component: {fileID: 114434399453360720}
   - component: {fileID: 54982036864639488}
@@ -888,18 +887,6 @@ MonoBehaviour:
   maxForceUp: 1
   maxForceForw: 3
   anim: {fileID: 0}
---- !u!114 &114514385224023266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1092163998839680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a971b02b4fb9a41830b820cf2d6ac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 95488811232092394}
 --- !u!124 &124352908268968760
 Behaviour:
   m_ObjectHideFlags: 1

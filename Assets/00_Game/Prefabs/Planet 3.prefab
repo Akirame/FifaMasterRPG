@@ -57,7 +57,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 226f84501c814d24fa0bf5ec8ada6892, type: 2}
   m_StaticBatchInfo:
@@ -114,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAround: {fileID: 1323198023542784, guid: e4f5ba7a384d42348bf69b1b0663e4d4,
     type: 2}
+  typeOfPlanet: 0
   radius: 10
   traslationSpeed: 3
   angle: 0

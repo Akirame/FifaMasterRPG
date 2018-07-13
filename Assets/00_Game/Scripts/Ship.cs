@@ -37,7 +37,6 @@ public class Ship : MonoBehaviour
     private void Start()
     {
         fuel = MAX_FUEL;
-        Debug.Log("shipholi");
     }
 
     private void Update()

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TempPlayerMov : MonoBehaviour
 {
-
     #region singleton
     private static TempPlayerMov instance;
     public static TempPlayerMov Get()
@@ -18,7 +17,7 @@ public class TempPlayerMov : MonoBehaviour
         {
             //GameManager.Get().SetPlayer(this.gameObject);
             instance = this;
-            //DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this);
         }
         else
         {

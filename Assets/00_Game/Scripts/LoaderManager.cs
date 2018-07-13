@@ -3,8 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
+public class LoaderManager : MonoBehaviour
 {
+    #region singleton
+    private static LoaderManager instance;
+    public static LoaderManager Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {            
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
     public float loadingProgress;
     public float timeLoading;
     public float minTimeToLoad = 2;
@@ -13,7 +32,8 @@ public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
 
     public void LoadScene(string sceneName)
     {        
-        SceneManager.LoadScene("LoadingScreen");        
+        SceneManager.LoadScene("LoadingScreen");
+        Debug.Log("holi");
         StartCoroutine(AsynchronousLoad(sceneName));
     }
     public bool OnLevel()
@@ -38,7 +58,7 @@ public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
             return false;
     }
     IEnumerator AsynchronousLoad(string scene)
-    {
+    {        
         loadingProgress = 0;
         timeLoading = 0;
         yield return null;
@@ -48,6 +68,7 @@ public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
         while (!ao.isDone)
         {
             timeLoading += Time.deltaTime;
+            Debug.Log(timeLoading);
             loadingProgress = ao.progress + 0.1f;
             loadingProgress = loadingProgress * timeLoading / minTimeToLoad;
 
