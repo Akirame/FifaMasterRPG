@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: d0d7051992e992a4db9cc3ddffccc0df
+timeCreated: 1531487348
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: bn_cadera
+    100002: bn_COG
+    100004: bn_cuello
+    100006: bn_cuerpo
+    100008: bn_d_antebrazo
+    100010: bn_d_brazo
+    100012: bn_d_codo
+    100014: bn_d_pie
+    100016: bn_d_pierna
+    100018: bn_d_rodilla
+    100020: bn_i_antebrazo
+    100022: bn_i_brazo
+    100024: bn_i_codo
+    100026: bn_i_pie
+    100028: bn_i_pierna
+    100030: bn_i_rodilla
+    100032: bne_cabeza
+    100034: bne_d_dedos
+    100036: bne_d_dedos 1
+    100038: bne_i_dedos
+    100040: bne_i_mano
+    100042: bones
+    100044: control
+    100046: ctl_cadera
+    100048: ctl_COG
+    100050: ctl_cuello
+    100052: ctl_cuerpo
+    100054: ctl_d_antebrazo
+    100056: ctl_d_brazo
+    100058: ctl_d_codo
+    100060: ctl_d_pie
+    100062: ctl_i_antebrazo
+    100064: ctl_i_brazo
+    100066: ctl_i_codo
+    100068: ctl_i_pie
+    100070: ctl_i_rodilla
+    100072: ctrl_principal
+    100074: cuerpo
+    100076: geo
+    100078: grp_cadera
+    100080: grp_COG
+    100082: grp_cuello
+    100084: grp_cuerpo
+    100086: grp_d_antebrazo
+    100088: grp_d_brazo
+    100090: grp_d_codo
+    100092: grp_d_pie
+    100094: grp_i_antebrazo
+    100096: grp_i_brazo
+    100098: grp_i_codo
+    100100: grp_i_pie
+    100102: //RootNode
+    400000: bn_cadera
+    400002: bn_COG
+    400004: bn_cuello
+    400006: bn_cuerpo
+    400008: bn_d_antebrazo
+    400010: bn_d_brazo
+    400012: bn_d_codo
+    400014: bn_d_pie
+    400016: bn_d_pierna
+    400018: bn_d_rodilla
+    400020: bn_i_antebrazo
+    400022: bn_i_brazo
+    400024: bn_i_codo
+    400026: bn_i_pie
+    400028: bn_i_pierna
+    400030: bn_i_rodilla
+    400032: bne_cabeza
+    400034: bne_d_dedos
+    400036: bne_d_dedos 1
+    400038: bne_i_dedos
+    400040: bne_i_mano
+    400042: bones
+    400044: control
+    400046: ctl_cadera
+    400048: ctl_COG
+    400050: ctl_cuello
+    400052: ctl_cuerpo
+    400054: ctl_d_antebrazo
+    400056: ctl_d_brazo
+    400058: ctl_d_codo
+    400060: ctl_d_pie
+    400062: ctl_i_antebrazo
+    400064: ctl_i_brazo
+    400066: ctl_i_codo
+    400068: ctl_i_pie
+    400070: ctl_i_rodilla
+    400072: ctrl_principal
+    400074: cuerpo
+    400076: geo
+    400078: grp_cadera
+    400080: grp_COG
+    400082: grp_cuello
+    400084: grp_cuerpo
+    400086: grp_d_antebrazo
+    400088: grp_d_brazo
+    400090: grp_d_codo
+    400092: grp_d_pie
+    400094: grp_i_antebrazo
+    400096: grp_i_brazo
+    400098: grp_i_codo
+    400100: grp_i_pie
+    400102: //RootNode
+    2100000: lambert2
+    4300000: cuerpo
+    7400000: Kick
+    7400002: Run
+    7400004: Idle
+    7400006: Dead
+    9500000: //RootNode
+    13700000: cuerpo
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Kick
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 81
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 161
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dead
+      takeName: Take 001
+      firstFrame: 221
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

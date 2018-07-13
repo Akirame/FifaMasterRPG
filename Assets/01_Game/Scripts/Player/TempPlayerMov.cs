@@ -16,9 +16,9 @@ public class TempPlayerMov : MonoBehaviour
     {
         if (instance == null)
         {
-            GameManager.Get().SetPlayer(this.gameObject);
+            //GameManager.Get().SetPlayer(this.gameObject);
             instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
         else
         {
@@ -40,10 +40,17 @@ public class TempPlayerMov : MonoBehaviour
     private float distanceBallFromPlayer;
     private float forceUp;
     private float forceForw;    
-    private bool shooting;    
+    private bool shooting;
+
+    private float moving;
+    private bool dead;    
+    public Animator anim;
+
 
     private void Start()
     {
+        moving = 0;
+        dead = false;
         forceUp = 0;
         forceForw = 0;        
         shooting = false;        
@@ -52,21 +59,28 @@ public class TempPlayerMov : MonoBehaviour
 		// Permite acceder a los stats modificados en el player
 		playerStats = GetComponent<PlayerStats>();
     }
-    void Update ()
-	{
-		float horizontal = Input.GetAxis("Horizontal");
-		float vertical = Input.GetAxis("Vertical");
+    void Update()
+    {
+        if (!shooting)
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            if (vertical < 0)            
+                anim.SetBool("runBackward", true);            
+            else
+                anim.SetBool("runBackward", false);
+            moving = (Mathf.Abs(vertical)+ Mathf.Abs(horizontal));
+            anim.SetFloat("moving", moving);           
+            transform.Translate(Vector3.forward * vertical * (speed + playerStats.speed.GetValue()) * Time.deltaTime);
 
-        transform.Translate(Vector3.forward * vertical * (speed + playerStats.speed.GetValue()) * Time.deltaTime);
-
-        transform.Rotate(transform.up, horizontal * rotationSpeed * Time.deltaTime);
+            transform.Rotate(transform.up, horizontal * rotationSpeed * Time.deltaTime);
+        }
 
         ShootBehaviour();
 
         BallControlBehaviour();
         if (Input.GetKeyDown(KeyCode.Z))
-            LoaderManager.Get().LoadScene("LevelSelect");
-
+            LoaderManager.Get().LoadScene("LevelSelect");        
 	}
 
     private void BallControlBehaviour()
@@ -101,17 +115,8 @@ public class TempPlayerMov : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             shooting = true;
-        }
-        if (ball && ballInControl && shooting)
-        {
-			int forceFromItems = playerStats.power.GetValue();
-            Vector3 dir =  (transform.forward * (forceForw + forceFromItems) + (transform.up * forceUp));
-            ballInControl = false;
-            ball.GetComponent<Ball>().Shoot(dir);
-            forceForw = 0;
-            forceUp = 0;
-            shooting = false;
-        }
+            anim.SetBool("kicking", true);
+        }        
     }
     public float GetForce()
     {
@@ -120,5 +125,19 @@ public class TempPlayerMov : MonoBehaviour
     public float GetMaxForce()
     {
         return maxForceForw;
+    }
+    public void BallShoot()
+    {
+        anim.SetBool("kicking", false);
+        if (ball && ballInControl)
+        {
+            int forceFromItems = playerStats.power.GetValue();
+            Vector3 dir = (transform.forward * (forceForw + forceFromItems) + (transform.up * forceUp));
+            ballInControl = false;
+            ball.GetComponent<Ball>().Shoot(dir);
+            forceForw = 0;
+            forceUp = 0;            
+        }
+        shooting = false;
     }
 }
