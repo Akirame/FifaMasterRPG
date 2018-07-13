@@ -3,8 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviourSingleton<Ship>
+public class Ship : MonoBehaviour
 {
+    #region singleton
+    private static Ship instance;
+    public static Ship Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {
+            GameManager.Get().SetShip(this.gameObject);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
     public float speed = 10;
     public float rotationSpeed = 10;
     public float angle;
@@ -16,7 +35,7 @@ public class Ship : MonoBehaviourSingleton<Ship>
 
     private void Start()
     {
-        fuel = MAX_FUEL;
+        fuel = MAX_FUEL;        
     }
 
     private void Update()

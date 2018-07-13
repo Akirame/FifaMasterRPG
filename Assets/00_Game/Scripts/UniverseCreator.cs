@@ -2,8 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UniverseCreator : MonoBehaviourSingleton<UniverseCreator>
+public class UniverseCreator : MonoBehaviour
 {
+
+    #region singleton
+    private static UniverseCreator instance;
+    public static UniverseCreator Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {
+            GameManager.Get().SetUniverse(this.gameObject);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
     public GameObject planet1;
     public GameObject planet2;
     public GameObject planet3;
@@ -25,7 +45,7 @@ public class UniverseCreator : MonoBehaviourSingleton<UniverseCreator>
         PlanetList.Add(planet1);
         PlanetList.Add(planet2);
         PlanetList.Add(planet3);
-        CreateUniverse();
+        CreateUniverse();        
     }
     public void CreateUniverse()
     {

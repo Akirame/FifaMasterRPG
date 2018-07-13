@@ -12,8 +12,8 @@ public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
     private Scene currentScene;
 
     public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene("LoadingScreen");
+    {        
+        SceneManager.LoadScene("LoadingScreen");        
         StartCoroutine(AsynchronousLoad(sceneName));
     }
     public bool OnLevel()
@@ -54,7 +54,7 @@ public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
             // Loading completed
             if (loadingProgress >= 1)
             {
-                ao.allowSceneActivation = true;
+                ao.allowSceneActivation = true;                
             }
 
             yield return null;

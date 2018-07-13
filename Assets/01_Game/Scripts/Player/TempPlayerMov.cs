@@ -3,8 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempPlayerMov : MonoBehaviourSingleton<TempPlayerMov>
-{    
+public class TempPlayerMov : MonoBehaviour
+{
+
+    #region singleton
+    private static TempPlayerMov instance;
+    public static TempPlayerMov Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {
+            GameManager.Get().SetPlayer(this.gameObject);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
     public float speed = 5f;
     public GameObject ball;
     public Vector3 direction;
@@ -43,6 +63,8 @@ public class TempPlayerMov : MonoBehaviourSingleton<TempPlayerMov>
         ShootBehaviour();
 
         BallControlBehaviour();
+        if (Input.GetKeyDown(KeyCode.Z))
+            LoaderManager.Get().LoadScene("LevelSelect");
 
 	}
 

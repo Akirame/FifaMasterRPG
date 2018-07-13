@@ -4,8 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviourSingleton<UIManager>
+public class UIManager : MonoBehaviour
 {
+
+    #region singleton
+    private static UIManager instance;
+    public static UIManager Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
     public GameObject landButton;
     public GameObject exitButton;
     public GameObject enterButton;
@@ -53,7 +72,7 @@ public class UIManager : MonoBehaviourSingleton<UIManager>
 
     private void UpdateLabels()
     {
-        Ship player = GameManager.Get().GetPlayer().GetComponent<Ship>();
+        Ship player = GameManager.Get().GetShip().GetComponent<Ship>();
         fuelBar.fillAmount = player.GetFuel() / player.GetMaxFuel();
     }
 }

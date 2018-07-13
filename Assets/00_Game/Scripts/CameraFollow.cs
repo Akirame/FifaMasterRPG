@@ -2,10 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviourSingleton<CameraFollow> {
+public class CameraFollow : MonoBehaviour {
 
-
-    public GameObject toFollow;
+    #region singleton
+    private static CameraFollow instance;
+    public static CameraFollow Get()
+    {
+        return instance;
+    }
+    public virtual void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+    private GameObject toFollow;
     public Vector3 offSetShip;
     public Vector3 offSetPlanet;
     private Vector3 offSet;
@@ -13,6 +30,7 @@ public class CameraFollow : MonoBehaviourSingleton<CameraFollow> {
     private void Start()
     {
         offSet = offSetShip;
+        toFollow = GameManager.Get().GetShip();
     }
     void Update ()
     {

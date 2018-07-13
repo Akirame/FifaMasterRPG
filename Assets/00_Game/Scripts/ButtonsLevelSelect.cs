@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonsLevelSelect : MonoBehaviour
 {
     public void LandPressed()
-    {
+    {        
         GameManager.Get().LandOnPlanet();
     }
     public void ExitPressed()
