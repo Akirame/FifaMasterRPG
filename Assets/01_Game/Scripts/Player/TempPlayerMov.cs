@@ -18,6 +18,7 @@ public class TempPlayerMov : MonoBehaviour
         {
             GameManager.Get().SetPlayer(this.gameObject);
             instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {

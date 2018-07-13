@@ -15,11 +15,12 @@ public class UniverseCreator : MonoBehaviour
     {
         if (instance == null)
         {
-            GameManager.Get().SetUniverse(this.gameObject);
             instance = this;
+            GameManager.Get().SetUniverse(this.gameObject);
+            DontDestroyOnLoad(this);
         }
         else
-        {
+        {            
             Destroy(gameObject);
         }
     }
@@ -42,6 +43,7 @@ public class UniverseCreator : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("holi");
         PlanetList.Add(planet1);
         PlanetList.Add(planet2);
         PlanetList.Add(planet3);

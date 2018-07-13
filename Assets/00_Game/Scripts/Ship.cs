@@ -17,6 +17,7 @@ public class Ship : MonoBehaviour
         {
             GameManager.Get().SetShip(this.gameObject);
             instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -35,7 +36,8 @@ public class Ship : MonoBehaviour
 
     private void Start()
     {
-        fuel = MAX_FUEL;        
+        fuel = MAX_FUEL;
+        Debug.Log("shipholi");
     }
 
     private void Update()
