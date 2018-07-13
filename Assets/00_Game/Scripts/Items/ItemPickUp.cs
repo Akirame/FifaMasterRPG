@@ -18,7 +18,9 @@ public class ItemPickUp : Interactable
 	public override void Interact()
 	{
 		base.Interact(); // Executes Interact() inside Interactable class
-		Debug.Log("Press B to pick up " + item.name);
+		Inventory.Get().itemName = item.name;
+		Inventory.Get().pickUpText.SetActive(true);
+		//Debug.Log("Press B to pick up " + item.name);
 		canPickUp = true;
 	}
 
@@ -49,7 +51,10 @@ public class ItemPickUp : Interactable
 	void OnTriggerExit(Collider player)
 	{
 		if (player.tag == "Player")
+		{
+			Inventory.Get().pickUpText.SetActive(false);
 			canPickUp = false;
+		}
 	}
 
 	void AddSphereTrigger()

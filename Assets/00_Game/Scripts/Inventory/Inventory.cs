@@ -24,6 +24,10 @@ public class Inventory : MonoBehaviour
 	public Text playerSpeedText;
 	public Text playerPowerText;
 
+	public GameObject pickUpText;
+	public Text pressB;
+	public string itemName;
+
 	[HideInInspector]
 	public int playerSpeed;
 	[HideInInspector]
@@ -56,8 +60,12 @@ public class Inventory : MonoBehaviour
 
 	void Update()
 	{
+		//Gets values assigned from player class
 		playerSpeedText.text = "SPEED: " + playerSpeed;
 		playerPowerText.text = "SHOOTING POWER: " + playerPower;
+
+		// Gets values assigned from item class
+		pressB.text = "PRESS B TO PICK UP " + itemName;
 	}
 
 	public void Remove (Item item)
