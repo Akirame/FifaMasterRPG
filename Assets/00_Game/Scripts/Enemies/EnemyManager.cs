@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-
     [System.Serializable]
     public class EnemyList
     {
         public List<Enemy> enemies;
     }
     public List<EnemyList> EnemyWaves;
-
-
     public Transform[] spawnPoints;
 
-    private bool nextWave;
+	public Transform lootDropPoint;
+	public List<GameObject> itemsList;
+
+	private GameObject wave;
     private int currentWave;
-    private GameObject wave;
+    private int currentEnemies;
     private float timeBetweenWaves;
     private float timer;
-    private int currentEnemies;
+	private bool nextWave;
+	public bool levelWin;
 
-    private void Start()
+	private void Start()
     {
         Enemy.Hitted += EnemyKilled;
         nextWave = true;
@@ -31,33 +32,43 @@ public class EnemyManager : MonoBehaviour
         timeBetweenWaves = 3;
         timer = 0;
         currentEnemies = 0;
+		levelWin = false;
     }
 
     private void Update()
     {
-        if (currentWave <= EnemyWaves.Count)
-        {            
-            if (nextWave)
-            {
-                SpawnWave();
-                nextWave = false;
-            }
-            if (currentEnemies <= 0) //si toda la oleada es eliminada
-            {
-                Debug.Log("WAVE END");
-                if (timer >= timeBetweenWaves)
-                {
-                    currentWave++;
-                    nextWave = true;
-                    timer = 0;
-                }
-                else
-                    timer += Time.deltaTime;
-            }
-        }
-        else
-            Debug.Log("WIN");
-    }
+		if (!levelWin)
+		{
+			if (currentWave <= EnemyWaves.Count)
+			{
+				if (nextWave)
+				{
+					SpawnWave();
+					nextWave = false;
+				}
+				if (currentEnemies <= 0) //si toda la oleada es eliminada
+				{
+					Debug.Log("WAVE END");
+					if (timer >= timeBetweenWaves)
+					{
+						currentWave++;
+						nextWave = true;
+						timer = 0;
+					}
+					else
+						timer += Time.deltaTime;
+				}
+			}
+			else
+			{
+				levelWin = true;
+
+				int randomItem = Random.Range(0, itemsList.Count);
+				Instantiate(itemsList[randomItem], lootDropPoint.position, Quaternion.identity);
+				// Do other stuff when player wins
+			}
+		}
+	}
     private void SpawnWave()
     {
         wave.name = "Wave " + currentWave;

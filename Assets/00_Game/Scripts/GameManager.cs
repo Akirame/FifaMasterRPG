@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    #endregion
+	#endregion
     GameObject player;
     GameObject planet;
     GameObject universeCreator;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         SceneManager.sceneLoaded += ManageDontDestroys;
-    }
+	}
     public void ShipOnPlanet()
     {
         UIManager.Get().OnPlanet();
