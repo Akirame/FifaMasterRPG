@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     GameObject planet;
     GameObject universeCreator;
     GameObject ship;
+    GameObject inventory;
 
     private void Update()
     {
@@ -85,6 +86,10 @@ public class GameManager : MonoBehaviour
     {        
             universeCreator = u;
     }
+    public void SetInventory(GameObject i)
+    {
+        inventory = i;
+    }
     public GameObject GetShip()
     {
         return ship;
@@ -99,6 +104,8 @@ public class GameManager : MonoBehaviour
                 ship.SetActive(false);
             if (universeCreator)
                 universeCreator.SetActive(false);
+            if (inventory)
+                inventory.SetActive(true);
         }
         else if (LoaderManager.Get().OnLevelSelect())
         {            
@@ -108,6 +115,8 @@ public class GameManager : MonoBehaviour
                 ship.SetActive(true);
             if (universeCreator)
                 universeCreator.SetActive(true);
+            if (inventory)
+                inventory.SetActive(false);
         }
         else
         {            
@@ -117,6 +126,8 @@ public class GameManager : MonoBehaviour
                 ship.SetActive(false);
             if (universeCreator)
                 universeCreator.SetActive(false);
+            if (inventory)
+                inventory.SetActive(false);
         }
     }
 }

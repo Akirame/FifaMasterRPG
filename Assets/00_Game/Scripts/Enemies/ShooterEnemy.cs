@@ -10,7 +10,7 @@ public class ShooterEnemy : Enemy
     public Vector3 teletransportSize;
     void Start()
     {
-        target = TempPlayerMov.Get().transform;
+        target = PlayerController.Get().transform;
         currentState = STATES.CHASING;
         timerAttack = 0f;
         teletransport = false;

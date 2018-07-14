@@ -31,7 +31,7 @@ public class InventorySlot : MonoBehaviour
 	public void RemoveButton()
 	{
 		// Instantiate item object in the game world
-		Instantiate(item.itemPrefab, TempPlayerMov.Get().transform.position, Quaternion.identity);
+		Instantiate(item.itemPrefab, PlayerController.Get().transform.position, Quaternion.identity);
 
 		item.RemoveFromInventory();
 

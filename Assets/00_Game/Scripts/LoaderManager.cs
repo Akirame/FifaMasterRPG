@@ -33,7 +33,6 @@ public class LoaderManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {        
         SceneManager.LoadScene("LoadingScreen");
-        Debug.Log("holi");
         StartCoroutine(AsynchronousLoad(sceneName));
     }
     public bool OnLevel()
@@ -68,7 +67,6 @@ public class LoaderManager : MonoBehaviour
         while (!ao.isDone)
         {
             timeLoading += Time.deltaTime;
-            Debug.Log(timeLoading);
             loadingProgress = ao.progress + 0.1f;
             loadingProgress = loadingProgress * timeLoading / minTimeToLoad;
 

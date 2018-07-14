@@ -10,7 +10,7 @@ public class EnemyBullet : MonoBehaviour {
 
     private void Start()
     {
-        transform.LookAt(TempPlayerMov.Get().transform);
+        transform.LookAt(PlayerController.Get().transform);
         timer = 0;
     }
 

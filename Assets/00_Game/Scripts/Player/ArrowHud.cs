@@ -8,10 +8,10 @@ public class ArrowHud : MonoBehaviour {
 
     private void Start()
     {
-        arrowImage.fillAmount = TempPlayerMov.Get().GetForce();
+        arrowImage.fillAmount = PlayerController.Get().GetForce();
     }
     private void Update()
     {                
-        arrowImage.fillAmount = TempPlayerMov.Get().GetForce() / TempPlayerMov.Get().GetMaxForce();
+        arrowImage.fillAmount = PlayerController.Get().GetForce() / PlayerController.Get().GetMaxForce();
     }
 }

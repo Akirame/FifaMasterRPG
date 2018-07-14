@@ -7,7 +7,7 @@ public class EnemyMelee : Enemy
     // Use this for initialization
     void Start()
     {
-        target = TempPlayerMov.Get().transform;
+        target = PlayerController.Get().transform;
         currentState = STATES.ROAMING;
         chasingDistance = 7;
         attackingDistance = 1.5f;

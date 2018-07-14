@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TempPlayerMov : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     #region singleton
-    private static TempPlayerMov instance;
-    public static TempPlayerMov Get()
+    private static PlayerController instance;
+    public static PlayerController Get()
     {
         return instance;
     }
@@ -15,7 +15,7 @@ public class TempPlayerMov : MonoBehaviour
     {
         if (instance == null)
         {
-            //GameManager.Get().SetPlayer(this.gameObject);
+            GameManager.Get().SetPlayer(this.gameObject);
             instance = this;
             DontDestroyOnLoad(this);
         }

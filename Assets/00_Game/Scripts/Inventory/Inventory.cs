@@ -15,7 +15,11 @@ public class Inventory : MonoBehaviour
 	void Awake()
 	{
         if (!instance)
+        {
             instance = this;
+            DontDestroyOnLoad(this);
+            GameManager.Get().SetInventory(this.gameObject);
+        }
         else
             Destroy(this);
     }

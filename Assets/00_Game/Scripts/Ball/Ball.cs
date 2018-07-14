@@ -27,7 +27,7 @@ public class Ball : MonoBehaviour {
         if (other.tag == "Player")
         {
             player = other.gameObject;
-            other.GetComponent<TempPlayerMov>().SetBall(gameObject);
+            other.GetComponent<PlayerController>().SetBall(gameObject);
         }
     }
 

@@ -6,7 +6,7 @@ public class SuiciderEnemy : Enemy {
 
     void Start()
     {
-        target = TempPlayerMov.Get().transform;
+        target = PlayerController.Get().transform;
         currentState = STATES.CHASING;
     }
 
