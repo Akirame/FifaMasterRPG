@@ -25,13 +25,22 @@ public class GameManager : MonoBehaviour
     GameObject player;
     GameObject planet;
     GameObject universeCreator;
-    GameObject ship;
+    public GameObject ship;
     GameObject inventory;
+
+    private void Start()
+    {
+        ship = GameObject.FindGameObjectWithTag("Ship");
+    }
 
     private void Update()
     {
         SceneManager.sceneLoaded += ManageDontDestroys;
-	}
+        if (!ship)
+        {
+            ship = GameObject.FindGameObjectWithTag("Ship");
+        }
+    }
     public void ShipOnPlanet()
     {
         UIManager.Get().OnPlanet();
@@ -70,7 +79,7 @@ public class GameManager : MonoBehaviour
                 LoaderManager.Get().LoadScene("Level2");
                 break;
             case Planet.TYPE.PLANETBLUE:
-                LoaderManager.Get().LoadScene("Level3");                
+                LoaderManager.Get().LoadScene("Level3");
                 break;
         }
     }
@@ -112,14 +121,17 @@ public class GameManager : MonoBehaviour
             if (player)
                 player.SetActive(false);
             if (ship)
+            {
                 ship.SetActive(true);
+                ship = GameObject.FindGameObjectWithTag("Ship");
+            }
             if (universeCreator)
                 universeCreator.SetActive(true);
             if (inventory)
                 inventory.SetActive(false);
         }
         else
-        {            
+        {
             if (player)
                 player.SetActive(false);
             if (ship)

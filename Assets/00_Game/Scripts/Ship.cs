@@ -17,12 +17,12 @@ public class Ship : MonoBehaviour
         {
             GameManager.Get().SetShip(this.gameObject);
             instance = this;
-            DontDestroyOnLoad(this);
         }
         else
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(this);
     }
     #endregion
     public float speed = 10;

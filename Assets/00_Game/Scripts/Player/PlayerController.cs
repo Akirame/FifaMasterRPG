@@ -65,11 +65,11 @@ public class PlayerController : MonoBehaviour
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
             if (vertical < 0)            
-                anim.SetBool("runBackward", true);            
+                anim.SetBool("runBackward", true);
             else
                 anim.SetBool("runBackward", false);
             moving = (Mathf.Abs(vertical)+ Mathf.Abs(horizontal));
-            anim.SetFloat("moving", moving);           
+            anim.SetFloat("moving", moving);
             transform.Translate(Vector3.forward * vertical * (speed + playerStats.speed.GetValue()) * Time.deltaTime);
 
             transform.Rotate(transform.up, horizontal * rotationSpeed * Time.deltaTime);
@@ -83,7 +83,14 @@ public class PlayerController : MonoBehaviour
 
 		Inventory.Get().playerSpeed = playerStats.speed.GetValue();
 		Inventory.Get().playerPower = playerStats.power.GetValue();
-	}
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            dead = !dead;
+            anim.SetBool("dead", dead);
+        }
+
+    }
 
 	private void BallControlBehaviour()
     {
@@ -112,7 +119,7 @@ public class PlayerController : MonoBehaviour
             if (forceForw >= maxForceForw)
                 forceForw = maxForceForw;
             if (forceUp >= maxForceUp)
-                forceUp = maxForceUp;            
+                forceUp = maxForceUp;
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

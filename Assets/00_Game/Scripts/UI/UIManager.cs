@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     public GameObject planetText;
     public Image fuelBar;
     public Text planetName;
-    public Text planetInfo; 
+    public Text planetInfo;
     public void OnPlanet()
     {
         landButton.SetActive(true);
@@ -44,18 +44,18 @@ public class UIManager : MonoBehaviour
     private Planet planet;
 
     public void LandPlanet()
-    {        
+    {
         landButton.SetActive(false);
         exitButton.SetActive(true);
         enterButton.SetActive(true);
         planetName.text = planet.GetPlanetName();
         planetInfo.text = planet.GetPlanetInfo();
         fuelBar.gameObject.SetActive(false);
-        planetText.SetActive(true);        
+        planetText.SetActive(true);
     }
     public void ExitPlanet()
     {
-        planetText.SetActive(false);        
+        planetText.SetActive(false);
         exitButton.SetActive(false);
         enterButton.SetActive(false);
         fuelBar.gameObject.SetActive(true);
@@ -72,7 +72,11 @@ public class UIManager : MonoBehaviour
 
     private void UpdateLabels()
     {
-        Ship player = GameManager.Get().GetShip().GetComponent<Ship>();
-        fuelBar.fillAmount = player.GetFuel() / player.GetMaxFuel();
+        if (GameManager.Get().GetShip())
+        {
+            Ship player = GameManager.Get().GetShip().GetComponent<Ship>();
+            fuelBar.fillAmount = player.GetFuel() / player.GetMaxFuel();
+
+        }
     }
 }

@@ -34,8 +34,16 @@ public class CameraFollow : MonoBehaviour {
     }
     void Update ()
     {
-        transform.LookAt(toFollow.transform);
-        transform.position = toFollow.transform.position + offSet;
+        if (toFollow)
+        {
+            transform.LookAt(toFollow.transform);
+            transform.position = toFollow.transform.position + offSet;
+        }
+        else
+        {
+            toFollow = GameObject.FindGameObjectWithTag("Ship");
+        }
+
 	}
     public void LookAtPlanet(GameObject planet)
     {
